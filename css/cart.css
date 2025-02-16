@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+body{
+    border: 2px solid red;
+    background-color: lightgrey;
+}
+
+header,footer{
+    width: 100%;
+    border: 2px solid firebrick;
+    background-color: whitesmoke;
+}
+
+header{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.header__cont{
+    border: 2px solid darkblue;
+    font-size: 2.5em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+main{
+    border: 2px solid gold;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.cart-item{
+    width:100%;
+    border:1px solid black;
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 20px;
+   }
+
+   .cart-item h4{
+    width: 40%;
+   }
+
+   .cart-item div{
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+   }
+
+   .cart-remove{
+    width: 30px;
+    cursor: pointer;
+   }
+
+.footer__cont{
+    border: 2px solid violet;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer__cont h2{
+    font-size: 2em;
+}
+
+.footer__cont button{
+    background-color:black;
+    border-radius:12px;
+    padding:10px;
+    font-size: 0.875em;
+    font-weight: 600;
+    line-height: 21px;
+    margin-bottom: 35px;
+}
+
+.footer__cont button:hover{
+    background-color: white;
+    border: 1px solid black;
+    transform: scale(0.98)
+  }
+
+.footer__cont button a{
+    color:white;
+}
+
+.footer__cont button a:hover{
+    color: black;
+}
+

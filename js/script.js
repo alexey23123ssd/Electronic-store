@@ -27,7 +27,7 @@ cartCloseBtn.addEventListener('click',()=>{
 })
 
 toCartBtn.addEventListener("click",()=>{
-    window.location.href = "/html/cart.html"
+    window.location.href = "../html/cart.html"
 })
 
 window.addEventListener("load",()=>{
@@ -131,7 +131,7 @@ function createCartItem(cartItem){
     <p>1</p>
     <button class="minus">-</button>
   </div>
-  <img src="/img/cart-remove.gif" class = "cart-remove">`
+  <img src="../img/cart-remove.gif" class = "cart-remove">`
   cartSlider.prepend(item)
   }
  } 
