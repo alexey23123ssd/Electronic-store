@@ -1,3 +1,4 @@
+
 const cart = document.querySelectorAll('.header__icons div')[0]
 const cartSlider = document.querySelector('.card__slider')
 const cartCloseBtn = document.querySelectorAll('.card__slider button')[0]
@@ -189,7 +190,7 @@ for(let i=0;i<itemArr.length;i++){
 price = Number(itemArr[i].price.slice(1))
 sum+= price
 }
-cart.textContent=`Итого:$${sum}`
+cart.textContent=`Total:$${sum}`
 }
 
 function loadItems(itemArr){
@@ -224,7 +225,7 @@ function loadItems(itemArr){
       <p>${count}</p>
       <button class="minus">-</button>
     </div>
-    <img src="/img/cart-remove.gif" class = "cart-remove">`
+    <img src="/img/cart-delete.svg" class = "cart-remove">`
     cartSlider.prepend(item)
     }
   }

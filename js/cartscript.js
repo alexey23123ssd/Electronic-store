@@ -1,10 +1,10 @@
-const cartContainer = document.querySelector(".main__cont")
+const cartContainer = document.querySelector("main .container")
+
 
 window.addEventListener('storage',(event)=>{
-    const cartContainer = document.querySelector(".main__cont")
+    const cartContainer = document.querySelector("main .container")
     const items = document.querySelectorAll(".cart-item")
-    const itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
-
+    let itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
       if(event.key === "itemArr"){
         calculateSum(itemArr)
         let divArr = Array.from(items)
@@ -20,14 +20,14 @@ window.addEventListener('storage',(event)=>{
 })
 
 window.addEventListener('load',()=>{
-  const itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
+  let itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
   loadItems(itemArr)
   calculateSum(itemArr)
 })
 
 cartContainer.addEventListener("click",(event)=>{
+  let itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
   if(event.target.matches(".plus")){
-    const itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
     event.target.nextElementSibling.textContent = Number(event.target.nextElementSibling.textContent) + 1
     const container = event.target.parentElement.parentElement
 
@@ -43,8 +43,8 @@ cartContainer.addEventListener("click",(event)=>{
 })
 
 cartContainer.addEventListener("click",(event)=>{
+  let itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
   if(event.target.matches(".minus")){
-    const itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
     let itemsAmount = Number(event.target.previousElementSibling.textContent)
     if(itemsAmount>1){
       event.target.previousElementSibling.textContent = Number(event.target.previousElementSibling.textContent) - 1
@@ -61,6 +61,16 @@ cartContainer.addEventListener("click",(event)=>{
 })
 
 
+cartContainer.addEventListener("click",(item)=>{
+  let itemArr = JSON.parse(localStorage.getItem("itemArr")) || []
+  if(item.target.matches('img')){
+   itemArr = itemArr.filter((elem)=>elem.name!==item.target.closest('.cart-item').dataset.name)
+   localStorage.setItem('itemArr',JSON.stringify(itemArr))
+   item.target.closest('.cart-item').remove()
+
+   calculateSum(itemArr)
+  }
+ })
 
 function createCartItem(container,itemArr){
       const item = document.createElement('div')
@@ -75,12 +85,12 @@ function createCartItem(container,itemArr){
         <p>${1}</p>
         <button class="minus">-</button>
       </div>
-      <img src="/img/cart-remove.gif" class = "cart-remove">`
+      <img src="/img/cart-delete.svg" class = "cart-remove">`
       container.prepend(item)
 }
 
 function loadItems(itemArr){
-  const cartContainer = document.querySelector(".main__cont")
+  const cartContainer = document.querySelector("main .container")
   if(itemArr.length!==0){
     const countByName = itemArr.reduce((acc, item) => {
       acc[item.name] = (acc[item.name] || 0) + 1;
@@ -112,7 +122,7 @@ function loadItems(itemArr){
       <p>${count}</p>
       <button class="minus">-</button>
     </div>
-    <img src="/img/cart-remove.gif" class = "cart-remove">`
+    <img src="/img/cart-delete.svg" class = "cart-remove">`
     cartContainer.prepend(item)
     }
   }
@@ -128,7 +138,7 @@ function calculateSum(itemArr){
   price = Number(itemArr[i].price.slice(1))
   sum+= price
   }
-  cartSum.textContent=`Итого:$${sum}`
+  cartSum.textContent=`Total:$${sum}`
 }
 
 function removeItem(itemArr,itemName){
