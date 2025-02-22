@@ -24,6 +24,7 @@ body{
 }
 
 .header__root-cont{
+    position: relative;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -39,8 +40,9 @@ body{
     gap:34px;
     }
   
-    .header__list img{
+    .header__logo{
       width: 92px;
+      cursor: pointer;
     }
     
     nav a{
@@ -63,7 +65,7 @@ body{
     gap:20px;
     }
 
-    .header__icons div{
+    .header__icons > div{
       position: absolute;
       width:30%;
       height: 120%; 
@@ -132,8 +134,8 @@ body{
     .items__amount{
       position: absolute;
       width: 19px;  
-      left: 93.4%;
-      top: 29%;
+      left: 50%;
+      top: -30%;
       border-radius: 50%;
       text-align: center;
       font-size:16px;
@@ -249,8 +251,8 @@ body{
             gap: 17px;
         }
 
-        .info-cont figure:nth-child(1){
-          border: 2px solid var(--btn-yellow);
+        .info-cont figure[data-selected]{
+          border:2px solid var(--btn-yellow);
         }
 
         .info-cont figure:hover{
@@ -262,19 +264,16 @@ body{
             width: 33px;
         }
 
-        .info-cont button:nth-child(1){
+        .info-cont button{
             padding: 19px 34px;
-            border:2px solid var(--btn-yellow);
-            border-radius: 30px;
-            margin-bottom: 30px;
-        }
-
-        .info-cont button:nth-child(2){
-            padding: 19px 31px;
             border: 1px solid #0000001A;
             border-radius: 30px;
             margin-bottom: 30px;
         }
+
+        .info-cont button[data-selected]{
+          border:2px solid var(--btn-yellow);
+       }
 
         .info-cont div button:hover{
             border:2px solid var(--btn-yellow);

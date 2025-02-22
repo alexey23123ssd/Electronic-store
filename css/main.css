@@ -68,7 +68,7 @@ body{
     gap:20px;
     }
 
-    .header__icons div{
+    .header__icons > div{
       position: absolute;
       width:30%;
       height: 120%; 
@@ -136,9 +136,9 @@ body{
 
     .items__amount{
       position: absolute;
-      width: 19px;  
-      left: 93.4%;
-      top: 29%;
+      width: 19px;
+      left: 50%;
+      top: -30%;
       border-radius: 50%;
       text-align: center;
       font-size:16px;

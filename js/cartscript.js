@@ -126,7 +126,6 @@ function loadItems(itemArr){
     cartContainer.prepend(item)
     }
   }
-  return
 }
 
 function calculateSum(itemArr){

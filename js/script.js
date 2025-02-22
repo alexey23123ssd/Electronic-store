@@ -52,8 +52,14 @@ if(event.target.matches("[data-btn='buy']")){
         itemArr.push(item)
         localStorage.setItem('itemArr',JSON.stringify(itemArr))
         
-        calculateCartSum(event)
+        calculateSum(itemArr)
         countItems()
+  }
+})
+
+main.addEventListener("click",(event)=>{
+  if(event.target.matches("[data-spec='c33']")){
+    window.location.href = "../html/item.html"
   }
 })
 
@@ -132,7 +138,7 @@ function createCartItem(cartItem){
     <p>1</p>
     <button class="minus">-</button>
   </div>
-  <img src="../img/cart-remove.gif" class = "cart-remove">`
+  <img src="../img/cart-delete.svg" class = "cart-remove">`
   cartSlider.prepend(item)
   }
  } 
@@ -159,9 +165,8 @@ function createCartItem(cartItem){
 
 function count(itemArr){
 for(let i = 0;i<=itemArr.length;i++){
-  counter = i
-  if(counter>0){
-  itemCounter.textContent = counter
+  if(i>0){
+  itemCounter.textContent = i
   itemCounter.style.visibility="visible"
   }
   else{
@@ -174,14 +179,12 @@ function calculateCartSum(btn){
   const cartSum = document.querySelector('.cart_sum')
   let price = Number(btn.target.previousElementSibling.previousElementSibling.textContent.slice(1))
   let cartSummary= Number(cartSum.textContent.slice(7));
-  let sum = 0;
-      
-  sum = price + cartSummary
-      
+  let sum = price + cartSummary
+
   cartSum.textContent = `Итого:$${sum}`
 }
 
-function calculateSum(itemArr){
+ function calculateSum(itemArr){
 const cart = document.querySelector('.cart_sum');
 let price;
 let sum = 0;
@@ -229,7 +232,6 @@ function loadItems(itemArr){
     cartSlider.prepend(item)
     }
   }
-  return
 }
 
 function generateGUID(){
