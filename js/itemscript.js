@@ -14,7 +14,6 @@ window.addEventListener("load",()=>{
   calculateSum(itemArr)
 })
 
-
 cart.setAttribute("data-state","closed")
 
 cart.addEventListener('click',()=>{

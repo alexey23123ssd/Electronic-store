@@ -1,13 +1,14 @@
+@import "normalize.css";
 :root{
   --big-fontSize:3.4375em;
   --medium-fontSize:1.875em;
   --small-fontSize:1.3125em;
   --btn-black:black;
   --btn-yellow:#FFCA00;
-}
-
-*{
   box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 img{
@@ -205,6 +206,7 @@ body{
   position:relative; 
   width: 100%;
   margin: 0 auto;
+  background-image:s ;
   }
   
   main{
