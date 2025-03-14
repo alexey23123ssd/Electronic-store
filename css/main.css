@@ -6,6 +6,7 @@
   --btn-black:black;
   --btn-yellow:#FFCA00;
   box-sizing: border-box;
+  font-size: 16px;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -25,6 +26,7 @@ body{
     display:flex;
     flex-direction:column;
     margin-bottom:50px;
+    position: relative;
   }
   
   .header__root-cont{
@@ -164,6 +166,11 @@ body{
     z-index: 5;
     }
 
+    .header__bg-img{
+      position:relative;
+      width: 100%;
+      margin: 0 auto;
+    }
     
   .header__ads{
   display:flex;
@@ -202,12 +209,6 @@ body{
     margin-right: 12px;
   }
 
-  .header__bg-img{
-  position:relative; 
-  width: 100%;
-  margin: 0 auto;
-  background-image:s ;
-  }
   
   main{
   width:91.5%;
@@ -452,4 +453,59 @@ body{
 
   button{
     transition: transform 0.2s ease-in;
+  }
+
+  .modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index:5;
+    background:rgba(255, 255, 255, 0.73);
+    display:flex;
+    justify-content: flex-end;
+    align-items: end;
+  }
+
+  .modal__confirm{
+    position: absolute;
+    border-radius: 10px;
+    background-color: var(--btn-black);
+    color: whitesmoke;
+    padding: 20px 20px;
+    margin-right: 5px;
+  }
+
+  .modal__wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .modal__appeal{
+    color: whitesmoke;
+    margin-bottom: 20px;
+    line-height: 20px;
+  }
+
+  .modal__cookie{
+    width: 35px;
+  }
+
+  .modal__cross{
+    width: 35px;
+    cursor: pointer;
+  }
+
+  .modal__button{
+    padding: 15px 50px;
+    color: var(--btn-black);
+    background-color: whitesmoke;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .modal__button:hover{
+    background-color: rgba(255, 255, 255, 0.9);
   }
